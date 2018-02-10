@@ -1,4 +1,5 @@
-# Do not import any modules. If you do, the tester may reject your submission.
+
+ # Do not import any modules. If you do, the tester may reject your submission.
 
 # Constants for the contents of the maze.
 
@@ -45,7 +46,7 @@ The first parameter represents the rat to be initialized, the second parameter r
         self.row=row
         self.col=col
         self.num_sprouts_eaten=0
-        
+
     """ A rat caught in a maze. """
     def set_location(self,row,col):
         """(Rat,int,int)->NoneType
@@ -53,7 +54,7 @@ The first parameter represents a rat, the second represents a row, and the third
 set_location(3,5)
 R.row=3
 """
-        
+
         self.row=row
         self.col=col
     def eat_sprout(self):
@@ -69,7 +70,7 @@ The first parameter represents a rat. Add one to the rat's instance variable num
         """ (Rat)->NoneType
 The parameter represents a rat. Return a string representation of the rat, in this format:
 >>> R=Rat('P',1,4)
->>> str(R) 
+>>> str(R)
 'P at (1,4) ate 0 sprouts.'
 """
         return self.symbol +" at "+"("+str(self.row)+","+str(self.col)+")"+ " ate "+ str(self.num_sprouts_eaten) +" sprouts."
@@ -157,22 +158,22 @@ Move the rat in the given direction, unless there is a wall in the way. Also, ch
       Rat('P', 1, 4))
 
 """
-            
+
         if not self.is_wall(rat.row,rat.col):
-                
+
             if self.maze[rat.row][rat.col]==SPROUT:
                 self.maze[rat.row][rat.col]=HALL
                 rat.eat_sprout()
-            
+
             rat.row+=V_dir_change
             rat.col+=H_dir_change
-             
+
         else:
             return True
 
 
     def __str__(self):
-            
+
         """(Rate)->str
 The parameter represents a maze. Return a string representation of the maze, using the format shown in this example:
 >>> M=Maze([['#', '#', '#', '#', '#', '#', '#'],\
@@ -189,6 +190,6 @@ The parameter represents a maze. Return a string representation of the maze, usi
         return str(self.rat_1)+"\n"+str(self.rat_2)
 
 if __name__=="__main__":
-    
+
     import doctest
     doctest.testmod()
